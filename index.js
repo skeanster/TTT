@@ -35,7 +35,6 @@ startGame = () => {
                 }
                 }
 
-
             if (
                 (a.textContent===b.textContent && a.textContent===c.textContent && a.textContent !== '') ||
                 (d.textContent===e.textContent && d.textContent===f.textContent && d.textContent !== '') ||
