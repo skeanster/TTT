@@ -155,6 +155,14 @@ pveGame = () => {
                     return}
                 if (eye.textContent==h.textContent && eye.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
                     return}
+                if (a.textContent==h.textContent && a.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
+                    return}
+                if (c.textContent==h.textContent && c.textContent=='X' && g.textContent=='') {f.textContent=user2.marker
+                    return}
+                if (eye.textContent==b.textContent && eye.textContent=='X' && f.textContent=='') {f.textContent=user2.marker
+                    return}
+                if (g.textContent==b.textContent && g.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
+                    return}
                 if (a.textContent==c.textContent&& a.textContent=='X' && b.textContent=='') {b.textContent=user2.marker 
                     return}
                 if (a.textContent==g.textContent && a.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
