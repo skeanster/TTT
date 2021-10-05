@@ -10,12 +10,12 @@ a {
 
 .logo {
     display: flex;
-    font-size: 40px;
+    font-size: 30px;
     color: white;
-    background-color: rgb(51, 51, 51);
+    background-color: rgba(12, 101, 235, 0.61);
     transform: skewx(-10deg);
     padding: 6px;
-    margin: 8px;
+    margin: 15px;
     margin-left: 16px;
 }
 
@@ -37,7 +37,16 @@ a {
     border-top: 0;
     border-right: 0;
     border-left: 0;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 3px 5px -2px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+}
+
+h1 {
+    display: flex;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: black;
+    text-shadow: 4px 4px rgb(12 101 235 / 61%);
+    justify-content: center;
 }
 
 .gameBoard {
@@ -55,7 +64,8 @@ a {
     padding: 10px;
     border: 1px solid black;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    border-radius: 10px;
+    border-radius: 4px;
+    color: black;
 }
 
 .square {
@@ -64,7 +74,7 @@ a {
     display: flex;
     width: 100px;
     height: 100px;
-    border: 1px solid black;
+    border: 1px solid rgba(12, 101, 235, 0.61);
     cursor: pointer;
     align-content: stretch;
     justify-content: center;
@@ -99,9 +109,6 @@ a {
     border-left: none;
 }
 
-#cube4 {
-}
-
 #cube5 {
     border-right: none;
 }
@@ -126,11 +133,12 @@ a {
     height: 30px;
     background-color: white;
     font-size: 20px;
-    border:1px solid rgb(192, 192, 192);
-    border-radius:10px;
+    border: none;
+    border-radius:4px;
+    cursor: pointer;
 }
 
 .active {
-    border:2px solid rgba(50, 138, 50, 0.774);
-    border-radius: 10px;
+    border: 2px solid rgba(12, 101, 235, 0.61);
+    border-radius: 4px;
 }

@@ -94,6 +94,31 @@ pveGame = () => {
     pvpButton.addEventListener('click', resetListener)
     pvpButton.addEventListener('click', pvpGame)
 
+    playerTurn=1
+    playerSwitch = () => (playerTurn==2) ? playerTurn =1 : playerTurn=2
+
+    function checkVictory() {
+        if (
+            (a.textContent===b.textContent && a.textContent===c.textContent && a.textContent !== '') ||
+            (d.textContent===e.textContent && d.textContent===f.textContent && d.textContent !== '') ||
+            (g.textContent===h.textContent && g.textContent===eye.textContent && g.textContent !== '') ||
+            (a.textContent===d.textContent && a.textContent===g.textContent && a.textContent !== '') ||
+            (b.textContent===e.textContent && b.textContent===h.textContent && b.textContent !== '') ||
+            (c.textContent===f.textContent && c.textContent===eye.textContent && c.textContent !== '') ||
+            (a.textContent===e.textContent && a.textContent===eye.textContent && a.textContent !== '') ||
+            (g.textContent===e.textContent && g.textContent===c.textContent && g.textContent !== '') 
+        ) {
+            if (playerTurn==1) {
+                if(!alert('Congratulations! You win!')){window.location.reload()}
+                return true
+            }
+            else {
+                if(!alert('Computer wins... ouch')){window.location.reload()}
+                return false
+            }
+        };
+    }
+    
     function computerSelect() {
         if (a.textContent&&b.textContent&&c.textContent&&d.textContent&&e.textContent&&f.textContent&&g.textContent&&h.textContent&&eye.textContent !='') {return}
         else {
@@ -102,6 +127,34 @@ pveGame = () => {
                 return
             }
             else {
+                if (g.textContent==e.textContent && g.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                    return}
+                if (c.textContent==e.textContent && c.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
+                    return}
+                if (f.textContent==e.textContent && f.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
+                    return}
+                if (a.textContent==d.textContent && a.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
+                    return}
+                if (g.textContent==d.textContent && g.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
+                    return}
+                if (b.textContent==e.textContent && b.textContent=='X' && h.textContent=='') {h.textContent=user2.marker
+                    return}
+                if (h.textContent==e.textContent && h.textContent=='X' && b.textContent=='') {b.textContent=user2.marker
+                    return}
+                if (c.textContent==f.textContent && c.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
+                    return}
+                if (eye.textContent==f.textContent && eye.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                    return}
+                if (a.textContent==b.textContent && a.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                    return}
+                if (c.textContent==b.textContent && c.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
+                    return}
+                if (d.textContent==e.textContent && d.textContent=='X' && f.textContent=='') {f.textContent=user2.marker
+                    return}
+                if (g.textContent==h.textContent && g.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
+                    return}
+                if (eye.textContent==h.textContent && eye.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
+                    return}
                 if (a.textContent==c.textContent&& a.textContent=='X' && b.textContent=='') {b.textContent=user2.marker 
                     return}
                 if (a.textContent==g.textContent && a.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
@@ -114,29 +167,7 @@ pveGame = () => {
                     return}
                 if (eye.textContent==e.textContent && eye.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
                     return}
-                if (c.textContent==e.textContent && c.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
-                    return}
-                if (g.textContent==e.textContent && g.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
-                    return}
-                if (a.textContent==b.textContent && a.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
-                    return}
-                if (c.textContent==b.textContent && c.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
-                    return}
-                if (d.textContent==e.textContent && d.textContent=='X' && f.textContent=='') {f.textContent=user2.marker
-                    return}
-                if (f.textContent==e.textContent && f.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
-                    return}
-                if (g.textContent==h.textContent && g.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
-                    return}
-                if (eye.textContent==h.textContent && eye.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
-                    return}
-                if (a.textContent==d.textContent && a.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
-                    return}
-                if (g.textContent==d.textContent && g.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
-                    return}
-                if (c.textContent==f.textContent && c.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
-                    return}
-                if (eye.textContent==f.textContent && eye.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                if (eye.textContent==e.textContent && eye.textContent=='X' && a.textContent!=='') {c.textContent=user2.marker
                     return}
                 if(e.textContent=='X' && a.textContent=='') {a.textContent=user2.marker}
                 else {
@@ -169,26 +200,16 @@ pveGame = () => {
         if (i.target.textContent=='O' || i.target.textContent=='X') {alert('pick a different square')}
         else {
                 i.target.textContent=user1.marker;
+                if (checkVictory()) {return}
+                playerSwitch()
                 computerSelect()
-
+                if (checkVictory()) {return}
+                playerSwitch()
             }
 
-        if (
-            (a.textContent===b.textContent && a.textContent===c.textContent && a.textContent !== '') ||
-            (d.textContent===e.textContent && d.textContent===f.textContent && d.textContent !== '') ||
-            (g.textContent===h.textContent && g.textContent===eye.textContent && g.textContent !== '') ||
-            (a.textContent===d.textContent && a.textContent===g.textContent && a.textContent !== '') ||
-            (b.textContent===e.textContent && b.textContent===h.textContent && b.textContent !== '') ||
-            (c.textContent===f.textContent && c.textContent===eye.textContent && c.textContent !== '') ||
-            (a.textContent===e.textContent && a.textContent===eye.textContent && a.textContent !== '') ||
-            (g.textContent===e.textContent && g.textContent===c.textContent && g.textContent !== '') 
-        ) {
-            if(!alert('You lost to computer you big dumb idiot!!!')){window.location.reload()};
-            return
-        };
         if (a.textContent&&b.textContent&&c.textContent&&d.textContent&&e.textContent&&f.textContent&&g.textContent&&h.textContent&&eye.textContent !== '') {
             if(!alert("A tie?.. You really can't win?")){window.location.reload();}
-        }        
+        }
     }
 
     let a = gameBoard[0]
