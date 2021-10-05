@@ -14,6 +14,8 @@ const pveButton = document.querySelector('#pveButton')
 
 
 pvpGame = () => {
+    pveButton.classList.remove('active')
+    pvpButton.classList.add('active')
     pveButton.addEventListener('click', resetListener)
     pveButton.addEventListener('click', pveGame)
     pvpButton.addEventListener('click', resetListener)
@@ -31,11 +33,11 @@ pvpGame = () => {
         else {
             if(playerTurn==1) {
                 i.target.textContent=user1.marker
-                player()
+                playerSwitch()
             }
             else if(playerTurn==2) {
                 i.target.textContent=user2.marker
-                player()
+                playerSwitch()
             }
             }
 
@@ -49,8 +51,14 @@ pvpGame = () => {
             (a.textContent===e.textContent && a.textContent===eye.textContent && a.textContent !== '') ||
             (g.textContent===e.textContent && g.textContent===c.textContent && g.textContent !== '') 
         ) {
-            if(!alert('Winner!')){window.location.reload()}
-            return
+            if (playerTurn==2) {
+                if(!alert('Player X is the Winner!')){window.location.reload()}
+                return
+            }
+            else {
+                if(!alert('Player O is the Winner!')){window.location.reload()}
+                return
+            }
         };
         if (a.textContent&&b.textContent&&c.textContent&&d.textContent&&e.textContent&&f.textContent&&g.textContent&&h.textContent&&eye.textContent !== '') {
             if(!alert('Tie')){window.location.reload();}
@@ -59,7 +67,7 @@ pvpGame = () => {
     }
     
     playerTurn=1
-    player = () => (playerTurn==2) ? playerTurn =1 : playerTurn=2
+    playerSwitch = () => (playerTurn==2) ? playerTurn =1 : playerTurn=2
 
 
     let a = gameBoard[0]
@@ -79,6 +87,8 @@ pvpGame = () => {
 }
 
 pveGame = () => {
+    pvpButton.classList.remove('active')
+    pveButton.classList.add('active')
     pveButton.addEventListener('click', resetListener)
     pveButton.addEventListener('click', pveGame)
     pvpButton.addEventListener('click', resetListener)
@@ -87,12 +97,59 @@ pveGame = () => {
     function computerSelect() {
         if (a.textContent&&b.textContent&&c.textContent&&d.textContent&&e.textContent&&f.textContent&&g.textContent&&h.textContent&&eye.textContent !='') {return}
         else {
-            let computer = (getRandomInt(8))
-            if (gameBoard[computer].textContent!=='') {
-                computerSelect()
+            if (e.textContent=='') {
+                e.textContent=user2.marker
+                return
             }
             else {
-                gameBoard[computer].textContent='O'
+                if (a.textContent==c.textContent&& a.textContent=='X' && b.textContent=='') {b.textContent=user2.marker 
+                    return}
+                if (a.textContent==g.textContent && a.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
+                    return}
+                if (g.textContent==eye.textContent && g.textContent=='X' && h.textContent=='') {h.textContent=user2.marker
+                    return}
+                if (c.textContent==eye.textContent && c.textContent=='X' && f.textContent=='') {f.textContent=user2.marker
+                    return}
+                if (a.textContent==e.textContent && a.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
+                    return}
+                if (eye.textContent==e.textContent && eye.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
+                    return}
+                if (c.textContent==e.textContent && c.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
+                    return}
+                if (g.textContent==e.textContent && g.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                    return}
+                if (a.textContent==b.textContent && a.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                    return}
+                if (c.textContent==b.textContent && c.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
+                    return}
+                if (d.textContent==e.textContent && d.textContent=='X' && f.textContent=='') {f.textContent=user2.marker
+                    return}
+                if (f.textContent==e.textContent && f.textContent=='X' && d.textContent=='') {d.textContent=user2.marker
+                    return}
+                if (g.textContent==h.textContent && g.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
+                    return}
+                if (eye.textContent==h.textContent && eye.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
+                    return}
+                if (a.textContent==d.textContent && a.textContent=='X' && g.textContent=='') {g.textContent=user2.marker
+                    return}
+                if (g.textContent==d.textContent && g.textContent=='X' && a.textContent=='') {a.textContent=user2.marker
+                    return}
+                if (c.textContent==f.textContent && c.textContent=='X' && eye.textContent=='') {eye.textContent=user2.marker
+                    return}
+                if (eye.textContent==f.textContent && eye.textContent=='X' && c.textContent=='') {c.textContent=user2.marker
+                    return}
+                if(e.textContent=='X' && a.textContent=='') {a.textContent=user2.marker}
+                else {
+                    let computer = (getRandomInt(8))
+                    if (gameBoard[computer].textContent!=='') {
+                        computerSelect()
+                    }
+                    else {
+                        gameBoard[computer].textContent='O'
+                        return
+                    }
+                }
+
             }
         }
     }
@@ -126,17 +183,13 @@ pveGame = () => {
             (a.textContent===e.textContent && a.textContent===eye.textContent && a.textContent !== '') ||
             (g.textContent===e.textContent && g.textContent===c.textContent && g.textContent !== '') 
         ) {
-            if(!alert('Winner!')){window.location.reload()};
+            if(!alert('You lost to computer you big dumb idiot!!!')){window.location.reload()};
             return
         };
         if (a.textContent&&b.textContent&&c.textContent&&d.textContent&&e.textContent&&f.textContent&&g.textContent&&h.textContent&&eye.textContent !== '') {
-            if(!alert('Tie')){window.location.reload();}
+            if(!alert("A tie?.. You really can't win?")){window.location.reload();}
         }        
     }
-    
-    playerTurn=1
-    player = () => (playerTurn==2) ? playerTurn =1 : playerTurn=2
-
 
     let a = gameBoard[0]
     let b = gameBoard[1]
@@ -154,4 +207,4 @@ pveGame = () => {
     };
 }
 
-pvpGame()
+pveGame()

@@ -80,3 +80,57 @@ a {
     gap: 10px;
 
 }
+
+#cube0 {
+    border-top: none;
+    border-left: none;
+}
+
+#cube1 {
+    border-top: none;
+}
+
+#cube2 {
+    border-top: none;
+    border-right: none;
+}
+
+#cube3 {
+    border-left: none;
+}
+
+#cube4 {
+}
+
+#cube5 {
+    border-right: none;
+}
+
+#cube6 {
+    border-bottom: none;
+    border-left: none;
+
+}
+
+#cube7 {
+    border-bottom: none;
+}
+
+#cube8 {
+    border-right: none;
+    border-bottom: none;
+}
+
+.typeButton {
+    width: 130px;
+    height: 30px;
+    background-color: white;
+    font-size: 20px;
+    border:1px solid rgb(192, 192, 192);
+    border-radius:10px;
+}
+
+.active {
+    border:2px solid rgba(50, 138, 50, 0.774);
+    border-radius: 10px;
+}
