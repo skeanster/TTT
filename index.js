@@ -3,7 +3,9 @@ const gameBoard = (
 )
 
 const Player = (name, marker) => {
-    return {name, marker};
+    const getName = () => name
+    const getMarker = () => marker
+    return {getName, getMarker, name, marker};
 }
 
 let user1 = Player('Player One', 'X')
@@ -80,10 +82,8 @@ pvpGame = () => {
     let h = gameBoard[7]
     let eye = gameBoard[8]
 
-    for (let i=0; i<gameBoard.length; i++) {
-        gameBoard[i].textContent = ''
-        gameBoard[i].addEventListener('click', clickTurn)
-    };
+    gameBoard.forEach(cube => cube.textContent='')
+    gameBoard.forEach(cube => cube.addEventListener('click', clickTurn))
 }
 
 pveGame = () => {
@@ -207,7 +207,7 @@ pveGame = () => {
     function clickTurn(i) {
         if (i.target.textContent=='O' || i.target.textContent=='X') {alert('pick a different square')}
         else {
-                i.target.textContent=user1.marker;
+                i.target.textContent=user1.getMarker();
                 if (checkVictory()) {return}
                 playerSwitch()
                 computerSelect()
