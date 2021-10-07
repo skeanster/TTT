@@ -32,7 +32,7 @@ const gameBoard = (function(){
                 return false
             }
         };
-        if (gameBoard.getSquare(0).textContent&&gameBoard.getSquare(1).textContent&&gameBoard.getSquare(2).textContent&&gameBoard.getSquare(3).textContent&&gameBoard.getSquare(4).textContent&&gameBoard.getSquare(5).textContent&&gameBoard.getSquare(6).textContent&&gameBoard.getSquare(7).textContent&&gameBoard.getSquare(8).textContent !='') {
+        if (board[0].textContent&&board[1].textContent&&board[2].textContent&&board[3].textContent&&board[4].textContent&&board[5].textContent&&board[6].textContent&&board[7].textContent&&board[8].textContent !='') {
             if(!alert("It's a tie, try again!")){window.location.reload()}
         }
     }
