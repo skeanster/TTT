@@ -7,14 +7,12 @@ const Player = (name, marker) => {
 const gameBoard = (function(){
     let board = Array.from(document.querySelectorAll('.square'))
     const getBoard = () => board
-
     const getSquare = (a) => board[a]
-
     const clear = () => {
         board.forEach(square => square.textContent='')
     }
 
-    function checkResult() {
+    const checkResult = () => {
         if (
             (board[0].textContent===board[1].textContent && board[0].textContent===board[2].textContent && board[0].textContent !== '') ||
             (board[3].textContent===board[4].textContent && board[3].textContent===board[5].textContent && board[3].textContent !== '') ||
@@ -121,7 +119,7 @@ const game = (function(){
 }());
 
 const gameController = (function(){
-
+    
     const pvpButton = document.querySelector('#pvpButton')
     pvpButton.addEventListener('click', game.startPvp)
 
